@@ -23,4 +23,10 @@ async function Display() {
     } catch (error) {
         console.error('Fetch Error:', error);
     }
+
+    // console.log(fetch('https://moviesdatabase.p.rapidapi.com/titles/tt0000002/main_actors'))
+    
+    fetch('https://moviesdatabase.p.rapidapi.com/titles/tt0000002/main_actors')
+        .then(res => res.json())
+        .then(data => console.log(data))
 }
