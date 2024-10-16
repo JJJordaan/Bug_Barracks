@@ -26,7 +26,9 @@ async function Display() {
 
     // console.log(fetch('https://moviesdatabase.p.rapidapi.com/titles/tt0000002/main_actors'))
     
-    fetch('https://moviesdatabase.p.rapidapi.com/titles/tt0000002/main_actors')
+    
+}
+
+fetch('https://moviesdatabase.p.rapidapi.com/titles/tt0000002/main_actors')
         .then(res => res.json())
         .then(data => console.log(data))
-}

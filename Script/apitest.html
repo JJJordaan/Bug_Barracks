@@ -5,14 +5,37 @@
     <title>Test</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body style="margin: 0px;">
 
-    <button class="TestButton" onclick="Display()"> Show Upcoming Movies </button>
-    <p id="Outpoop"></p>
+    <div id="particles-js" style="height:100vh;background-color: rgb(112, 112, 112); position: absolute;">
+
+        <div class="heading">
+            <button class="TestButton" onclick="Display()"> Show Upcoming Movies </button>          <!--All of my foreground elements push down the particles instead of being layered on top-->
+            <p id="Outpoop"></p>
+        </div>
+        
+
+    </div>
+
+    <!--<div id="particles-js"  style="background-color: rgb(112, 112, 112);">
+        <div class="heading">
+            <h1>GeeksforGeeks</h1>
+            <h3>
+                A computer Science                              this is how geeksforgeeks said to do it but their text also pushes the particles down
+                portal for geeks
+            </h3>
+        </div>
+    </div>-->
+
+    
 
 </body>
 
-<script src="script.js";></script>
-<script src="script2.js";></script>
-<script src="Class.js"></script>
+<!--script src="script.js"></-script-->
+<script src="script2.js"></script>
+
+<script src="Class.js"></script> <!--class exercise-->
+
+<script src="particles/particles.js"></script> <!--particles jquery addon-->
+<script src="particles/app.js"></script>        <!--particles jquery addon-->
 </html>

@@ -29,7 +29,7 @@ async function fetchMainActors() {
 //     .catch(error => console.error('Error:', error));
 // }
 
-
+// Asynchronous function for fetching and displaying data
 async function Display() {
     try {
         const response = await fetch('https://moviesdatabase.p.rapidapi.com/titles/x/upcoming', options);
