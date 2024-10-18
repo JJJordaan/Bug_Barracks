@@ -29,6 +29,8 @@ const TopMoviesOptions = {
   
         const Amount = list.length;
         console.log(Amount);
+
+        //Figure out how to make AMOUNT of cards
         
     })
 

@@ -35,7 +35,7 @@
 //MINE
 
 class Knife{
-constructor(sharpness,length,width,thick,handle){
+constructor(sharpness,length,width,thick,handle){  //this is a template object
     //constant values at top
     this.sharpness = sharpness;
     this.length = length;
