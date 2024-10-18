@@ -48,7 +48,7 @@ constructor(sharpness,length,width,thick,handle){
 
 
 classify() {
-    console.log(`This knife is ${this.sharpness}, it has a ${this.handle} handle, it is ${this.length}cm long, ${this.width}cm wide, ${this.thick}cm thick`);
+    console.log(`This knife is ${this.sharpness} sharp, it has a ${this.handle} handle, it is ${this.length}cm long, ${this.width}cm wide, ${this.thick}cm thick`);
 }}
 
 class ButterflyKnife extends Knife{
