@@ -40,27 +40,40 @@
 //         .then(data => console.log(data))
     
 
-        const options = {
-            method: 'GET',
-            headers: {
-              accept: 'application/json',
-              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2VhZjg4YmIyYzQ3MTQyZjczZTAxNmI3Y2U2ZTdiNyIsIm5iZiI6MTcyOTE2ODQyMy44NDM2NzgsInN1YiI6IjY3MTEwMzRiNmY3NzA3YWY0MGZhOWI2MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3ZW3a-GGY1Rwsoany3kcnVQbRKhjkSqwCf7Ar5Pyffg'
-            }
-          };
-          
-          let TopMovieData;
-        async function getTOPMOVIES() {
-          fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-            .then(response => response.json())
-            .then(response => {console.log(response);
-                //main code for the api goes here
-                TopMovieData = response;
-                //call api functions
-                console.log(TopMovieData);
-            })
-            .catch(err => console.error(err));
+const TopMoviesoptions = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2VhZjg4YmIyYzQ3MTQyZjczZTAxNmI3Y2U2ZTdiNyIsIm5iZiI6MTcyOTE2ODQyMy44NDM2NzgsInN1YiI6IjY3MTEwMzRiNmY3NzA3YWY0MGZhOWI2MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3ZW3a-GGY1Rwsoany3kcnVQbRKhjkSqwCf7Ar5Pyffg'
+  }
+};
 
-            //second fetch put here, save in different variables, not all in data
-        }
+let TopMoviesData;
+async function getTOPMOVIES() {
+fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', TopMoviesoptions)
+  .then(response => response.json())
+  .then(response => {console.log(response);
+      //main code for the api goes here
+      TopMoviesData = response;
+      //call api functions
+      console.log(TopMoviesData);
 
-        getTOPMOVIES();
+      const list = TopMoviesData.results;
+      list.map((item) => {
+        const name = item.title;
+        const InnerImgUrl = item.poster_path;
+        const InnerBackImgUrl = item.backdrop_path;
+        console.log(name + ` ` + `https://image.tmdb.org/t/p/w500/${InnerImgUrl}` + ` ` + `https://image.tmdb.org/t/p/w500/${InnerBackImgUrl}`);
+      })
+
+      
+      
+  })
+
+  .then(json => console.log(json.results))
+  .catch(err => console.error(err));
+
+  //second fetch put here, save in different variables, not all in data
+}
+
+getTOPMOVIES();        
