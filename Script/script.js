@@ -66,7 +66,7 @@ const TopMoviesOptions = {
       const TimesShown = NowPlayingInfo.dates;
 
       function getNowPlayingClassData(){  //Function to put fetched data into readable class data
-        NowPlayingInfo.map((Items) => {
+        NowPlayingInfo.map((Items) => {  //Create Items as a new variable to use as a replacement for loop variable
           const Name = Items.title;
           const Adult = Items.adult;
           const Language = Items.original_language;
@@ -86,21 +86,15 @@ const TopMoviesOptions = {
           this.FrontUrl = FrontUrl;
           this.BackUrl = BackUrl;
         }
-      
-        NowPlayingCard(){   //Function to output the class data with
-          NowPlayingInfo.map((items) => {
-            
-            class CurrentCard extends CardTemplate{
-              constructor(Title,Date,AgeRating,Languages,FrontUrl,BackUrl){
-              super(Title,Date,AgeRating,Languages,FrontUrl,BackUrl); }
-            }
-  
-            class Card = new CurrentCard(getNowPlayingClassData());
-            console.log(Card);
-          });
+      }
+
+      NowPlayingInfo.forEach(CardElement => {
+        class CurrentClass extends CardTemplate {
+          constructor (Title, Date, AgeRating, Languages, FrontUrl, BackUrl){
+            super(Title, Date, AgeRating, Languages, FrontUrl, BackUrl);
+          }
         }
-  
-        }
+      });
     })
 
     .catch(err => console.error(err));
