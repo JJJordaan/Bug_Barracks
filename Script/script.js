@@ -94,7 +94,12 @@ const TopMoviesOptions = {
             super(Title, Date, AgeRating, Languages, FrontUrl, BackUrl);
           }
         }
-      });
+        let output = new CurrentClass(getNowPlayingClassData())
+        LogClass(){
+          console.log(`${this.Title} Inheritence Output \n Time: ${this.Date} \n Age: ${this.AgeRating} \n Languages: ${this.Languages} \n FrontUrl: ${this.FrontUrl} \n BackUrl: \n ${this.BackUrl}`);
+        }
+        });
+        CurrentClass.logClass();
     })
 
     .catch(err => console.error(err));
