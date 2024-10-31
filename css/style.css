@@ -4,7 +4,7 @@ TestButton {
 
 .content {
     position: absolute;
-    top: 40px;
+    top: 0px;
     left: 0;
     width: 90%;
 }
@@ -13,4 +13,13 @@ TestButton {
     position: fixed;
     z-index: -1;
     background-color: rgb(112, 112, 112);
+}
+
+.Card {
+    position: relative;
+}
+
+.CardGradient {
+    position: absolute;
+    background-color: Black;
 }

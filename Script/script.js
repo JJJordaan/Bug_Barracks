@@ -17,6 +17,8 @@ const TopMoviesOptions = {
   let TopMoviesData;
   async function getCardData() {
 
+const Styler = document.querySelector(".Card");  //Add all classes here that need to be added to card text
+
 //FIRST API DATA:
   fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', TopMoviesOptions)
     .then(response => response.json()) //"response" is used a placeholder for the fetch function to loop with
@@ -54,7 +56,7 @@ const TopMoviesOptions = {
     .catch(err => console.error(err));
 
 //SECOND API DATA:
-  fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', NowPlayingOptions)
+  fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', NowPlayingOptions) 
     .then(res => res.json())
     .then(res => {
       console.log(`NOW SHOWING`);
@@ -72,55 +74,48 @@ const TopMoviesOptions = {
         const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
         const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
         // return [Name, TimesShown, Adult, Language, Poster, Backdrop];
-        console.log(`name: ${Name} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop}`)
+        console.log(`name: ${Name} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop}`);
+
+        const NowPlayingCard = () => {      //Streight up a variable that just runs a function
+          const DivElement = document.createElement('div'); //creates a div for the rest of the card html to be stored in
+          DivElement.classList.add('Card');
+          DivElement.innerHTML=`
+              <h1>
+                  ${Name}
+              </h1>
+              <p>
+                  ${TimesShown}
+              </p>
+              <p id="Age">
+                  ${Adult}
+              </p>
+                <div id="Languages" class="w-10">
+                  <p>${Language}</p>
+                </div>
+              <p>
+                  ${Poster}
+              </p>
+              <p>
+                  ${Backdrop}
+              </p>
+                `
+            Styler.appendChild(DivElement); //Classifies the DivElement and whatever is in it with the styler class object?
+            NowPlayingCard()
+        }}
+        
+        )
 
         
         })
 
-      // function getNowPlayingClassData(){  //Function to put fetched data into readable class data
-      //   NowPlayingInfo.map((Items) => {  //Create Items as a new variable to use as a replacement for loop variable
-      //     const Name = Items.title;
-      //     const Adult = Items.adult;
-      //     const Language = Items.original_language;
-      //     const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
-      //     const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
-      //     return [Name, TimesShown, Adult, Language, Poster, Backdrop];
-      // })}
+    }
 
-      // //NOW PLAYING CARD
-      // class CardTemplate{
-      //   constructor(Title,Date,AgeRating,Languages,FrontUrl,BackUrl){
-      //     this.Title = Title;
-      //     this.Date = Date;
-      //     this.AgeRating = AgeRating;
-      //     this.Languages = Languages;
-      //     this.FrontUrl = FrontUrl;
-      //     this.BackUrl = BackUrl;
-      //   }
-      // }
-
-      // NowPlayingInfo.forEach(Items => {
-      //   class CurrentClass extends CardTemplate {
-      //     constructor (Title, Date, AgeRating, Languages, FrontUrl, BackUrl){
-      //       this.Title = Items.title;
-      //       this.Date = TimesShown;
-
-      //     }
-      //   }
-      //   let output = new CurrentClass(getNowPlayingClassData())
-      //   LogClass(){
-      //     console.log(`${this.Title} Inheritence Output\nTime: ${this.Date}\nAge: ${this.AgeRating}\n Languages: ${this.Languages}\n FrontUrl: ${this.FrontUrl}\n BackUrl: ${this.BackUrl}`);
-      //   }
-      //   });
-      //   CurrentClass.logClass();
-    })
-
-    .catch(err => console.error(err));
+    // .catch(err => console.error(err));
 
   
-    //second fetch put here, save in different variables, not all in data
+    //second fetch put here, save in different variables, not all in 'data' variable
 
-    
-  }
+  
+  
   
   getCardData();        
