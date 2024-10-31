@@ -65,41 +65,54 @@ const TopMoviesOptions = {
       const NowPlayingInfo = NowPlayingData.results;
       const TimesShown = NowPlayingInfo.dates;
 
-      function getNowPlayingClassData(){  //Function to put fetched data into readable class data
-        NowPlayingInfo.map((Items) => {  //Create Items as a new variable to use as a replacement for loop variable
-          const Name = Items.title;
-          const Adult = Items.adult;
-          const Language = Items.original_language;
-          const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
-          const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
-          console.log(Name + ` ` + Poster + ` ` + Backdrop);
-          return [Name, TimesShown, Adult, Language, Poster, Backdrop];
-      })}
+      NowPlayingInfo.map((Items) => {  //Create Items as a new variable to use as a replacement for loop variable
+        const Name = Items.title;
+        const Adult = Items.adult;
+        const Language = Items.original_language;
+        const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
+        const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
+        // return [Name, TimesShown, Adult, Language, Poster, Backdrop];
+        console.log(`name: ${Name} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop}`)
 
-      //NOW PLAYING CARD
-      class CardTemplate{
-        constructor(Title,Date,AgeRating,Languages,FrontUrl,BackUrl){
-          this.Title = Title;
-          this.Date = Date;
-          this.AgeRating = AgeRating;
-          this.Languages = Languages;
-          this.FrontUrl = FrontUrl;
-          this.BackUrl = BackUrl;
-        }
-      }
+        
+        })
 
-      NowPlayingInfo.forEach(CardElement => {
-        class CurrentClass extends CardTemplate {
-          constructor (Title, Date, AgeRating, Languages, FrontUrl, BackUrl){
-            super(Title, Date, AgeRating, Languages, FrontUrl, BackUrl);
-          }
-        }
-        let output = new CurrentClass(getNowPlayingClassData())
-        LogClass(){
-          console.log(`${this.Title} Inheritence Output \n Time: ${this.Date} \n Age: ${this.AgeRating} \n Languages: ${this.Languages} \n FrontUrl: ${this.FrontUrl} \n BackUrl: \n ${this.BackUrl}`);
-        }
-        });
-        CurrentClass.logClass();
+      // function getNowPlayingClassData(){  //Function to put fetched data into readable class data
+      //   NowPlayingInfo.map((Items) => {  //Create Items as a new variable to use as a replacement for loop variable
+      //     const Name = Items.title;
+      //     const Adult = Items.adult;
+      //     const Language = Items.original_language;
+      //     const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
+      //     const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
+      //     return [Name, TimesShown, Adult, Language, Poster, Backdrop];
+      // })}
+
+      // //NOW PLAYING CARD
+      // class CardTemplate{
+      //   constructor(Title,Date,AgeRating,Languages,FrontUrl,BackUrl){
+      //     this.Title = Title;
+      //     this.Date = Date;
+      //     this.AgeRating = AgeRating;
+      //     this.Languages = Languages;
+      //     this.FrontUrl = FrontUrl;
+      //     this.BackUrl = BackUrl;
+      //   }
+      // }
+
+      // NowPlayingInfo.forEach(Items => {
+      //   class CurrentClass extends CardTemplate {
+      //     constructor (Title, Date, AgeRating, Languages, FrontUrl, BackUrl){
+      //       this.Title = Items.title;
+      //       this.Date = TimesShown;
+
+      //     }
+      //   }
+      //   let output = new CurrentClass(getNowPlayingClassData())
+      //   LogClass(){
+      //     console.log(`${this.Title} Inheritence Output\nTime: ${this.Date}\nAge: ${this.AgeRating}\n Languages: ${this.Languages}\n FrontUrl: ${this.FrontUrl}\n BackUrl: ${this.BackUrl}`);
+      //   }
+      //   });
+      //   CurrentClass.logClass();
     })
 
     .catch(err => console.error(err));

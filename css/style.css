@@ -1,3 +1,16 @@
 TestButton {
     margin-top: 5em;
 }
+
+.content {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 90%;
+}
+
+.particles-js-canvas-el{
+    position: fixed;
+    z-index: -1;
+    background-color: rgb(112, 112, 112);
+}
