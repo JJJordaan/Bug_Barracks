@@ -17,7 +17,7 @@ const TopMoviesOptions = {
   let TopMoviesData;
   async function getCardData() {
 
-const Styler = document.querySelector(".Card");  //Add all classes here that need to be added to card text
+const HeroHeader = document.getElementById("HeroHeader")
 
 //FIRST API DATA:
   fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', TopMoviesOptions)
@@ -36,18 +36,26 @@ const Styler = document.querySelector(".Card");  //Add all classes here that nee
 
           //Items is a placeholder variable that gets used by the map function to replace every item in the array with. Like a for loop
 
-          const name = Items.title;
-          const InnerImgUrl = Items.poster_path;
-          const InnerBackImgUrl = Items.backdrop_path;
+          const Title = Items.title;
           
-          const Poster = `https://image.tmdb.org/t/p/w500/${InnerImgUrl}`;
-          const Backdrop = `https://image.tmdb.org/t/p/w500/${InnerBackImgUrl}`;
+          const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
+          const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
 
-          console.log(name + ` ` + Poster + ` ` + Backdrop);
+          console.log(Title + ` ` + Poster + ` ` + Backdrop);
+
+          const DivElement = document.createElement('div');
+          DivElement.classList.add('col-lg-2', 'col-md-2', 'col-sm-4', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary');
+          DivElement.innerHTML = `
+          <h1>${Title}</h1>
+          <img src="${Poster}" alt="${Title}" class="w-100">
+          `;
+          HeroHeader.appendChild(DivElement);
         })
   
         const Amount = TopMoviesInfo.length;
         console.log(Amount);
+
+        
 
         //Figure out how to make AMOUNT of cards
         
@@ -61,53 +69,40 @@ const Styler = document.querySelector(".Card");  //Add all classes here that nee
     .then(res => {
       console.log(`NOW SHOWING`);
       console.log(res);
-      NowPlayingData = res;
-      console.log(NowPlayingData);
 
-      const NowPlayingInfo = NowPlayingData.results;
-      const TimesShown = NowPlayingInfo.dates;
+      const NowPlayingInfo = res.results;
+      const TimesShown = res.dates.minimum.slice(0,7);
 
       NowPlayingInfo.map((Items) => {  //Create Items as a new variable to use as a replacement for loop variable
-        const Name = Items.title;
-        const Adult = Items.adult;
-        const Language = Items.original_language;
+        const Title = Items.title;
+        const Adult = Items.adult? "18+" : "All Ages"; //IIIf statement called with '?' with the true case being the first option and false being the second
+        const Language = Items.original_language.toUpperCase();
         const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
         const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
         // return [Name, TimesShown, Adult, Language, Poster, Backdrop];
-        console.log(`name: ${Name} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop}`);
+        console.log(`name: ${Title} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop}`);
 
-        const NowPlayingCard = () => {      //Streight up a variable that just runs a function
-          const DivElement = document.createElement('div'); //creates a div for the rest of the card html to be stored in
-          DivElement.classList.add('Card');
-          DivElement.innerHTML=`
-              <h1>
-                  ${Name}
-              </h1>
-              <p>
-                  ${TimesShown}
-              </p>
-              <p id="Age">
-                  ${Adult}
-              </p>
-                <div id="Languages" class="w-10">
-                  <p>${Language}</p>
-                </div>
-              <p>
-                  ${Poster}
-              </p>
-              <p>
-                  ${Backdrop}
-              </p>
-                `
-            Styler.appendChild(DivElement); //Classifies the DivElement and whatever is in it with the styler class object?
-            NowPlayingCard()
-        }}
+        const DivElement = document.createElement('div');
+        DivElement.classList.add('col-lg-3', 'col-md-4', 'col-sm-4', 'col-xs-6', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary')
+        DivElement.innerHTML = `
+        <div class="position-relative, width-100">
+          <img src="${Poster}" alt="${Title}" class="w-100">
+          <div class="overlay">
+            <div class="overlay-content card-body">
+              <h1 class="Card-Title">${Title}</h1>
+              <p>${TimesShown}</p>
+              <p>${Adult}</p>
+              <p>${Language}</p>
+            </div>
+          </div>
+        </div>
         
-        )
-
+        `;
         
-        })
-
+        HeroHeader.appendChild(DivElement);
+      
+      }); 
+      })
     }
 
     // .catch(err => console.error(err));
