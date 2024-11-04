@@ -335,3 +335,47 @@ ul{
         width: 100%;
     }
 }
+
+.trailerImage{
+    margin-top: 100px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.trailerImage .img-fluid{
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgb(96 139 168);
+    border-radius: 5px;
+    background-color: rgb(96 139 168 / 0.2);
+
+}
+
+
+.trailerDescription{
+    margin-top: 200px;
+    color: white;
+    margin-left: 200px;
+}
+
+
+.trailerDescriptionText{
+    color: rgb(33, 171, 196); 
+}
+
+.movieInfo{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+.movieOptions .btn{
+    max-width: 200px;
+    width: 200px;
+}
