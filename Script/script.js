@@ -37,19 +37,33 @@ const HeroHeader = document.getElementById("HeroHeader")
           //Items is a placeholder variable that gets used by the map function to replace every item in the array with. Like a for loop
 
           const Title = Items.title;
-          
+          const Adult = Items.adult? "18+" : "All Ages"; //IIIf statement called with '?' with the true case being the first option and false being the second
+          const Language = Items.original_language.toUpperCase();
           const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
           const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
+          const ID = Items.id;
 
           console.log(Title + ` ` + Poster + ` ` + Backdrop);
 
           const TopMoviesDivElement = document.createElement('div');
           TopMoviesDivElement.classList.add('col-lg-2', 'col-md-2', 'col-sm-4', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary');
           TopMoviesDivElement.innerHTML = `
-          <h1>${Title}</h1>
-          <img src="${Poster}" alt="${Title}" class="w-100">
+          <div class="card bg-secondary text-white h-100">
+            <img src="${Poster}" class="card-img" alt="${Title}">
+            <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient-overlay">
+                <h5 class="card-title">${Title}</h5>
+                <p class="card-text">Age: ${Adult}</p>
+                <p class="card-text">Language: ${Language}</p>
+            </div>
+        </div>
           `;
           TopMovies.appendChild(TopMoviesDivElement);
+
+          function SaveID(){
+            sessionStorage.setItem('ID', ID);
+          }
+
+          document.addEventListener("click", SaveID())
         })
   
         const Amount = TopMoviesInfo.length;
@@ -98,6 +112,14 @@ const HeroHeader = document.getElementById("HeroHeader")
         `;
         
         NowShowing.appendChild(DivElement);
+
+        function SaveID(){
+          sessionStorage.setItem('ID', ID);
+          console.log(`${ID}`);
+        }
+
+        document.addEventListener("click", SaveID());
+
       
       }); 
       })
