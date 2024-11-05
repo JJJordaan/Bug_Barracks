@@ -204,15 +204,14 @@ const genres = { //pasted genre ids so it's easier to access
         NowShowing.appendChild(DivElement);
 
         function ImgBack() {
-          document.getElementById("trailerImage").src = Backdrop;
+          document.getElementById("trailerImage").src = Backdrop;       //sets the backImage item in the dynamic SingleItem page
         }
 
         DivElement.addEventListener('click', () => {
-          sessionStorage.setItem('SelectedMovieID', ID);
+          sessionStorage.setItem('SelectedMovieID', ID);          //Stores ID in session
           console.log(`Movie ID ${ID} stored in sessionStorage.`);
           
           document.getElementById("Description").innerText = Overview;
-          document.getElementById()
 
           ImgBack();
         });
