@@ -149,7 +149,9 @@ body style{
 }
 
 
-
+.text-container{
+    color: #ffffff;
+}
 
 .container text-center{
     padding-right: 50%;
