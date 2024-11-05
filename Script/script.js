@@ -188,15 +188,17 @@ const genres = { //pasted genre ids so it's easier to access
         DivElement.setAttribute('data-id', ID);
 
         DivElement.innerHTML = `
-        <div class="card bg-secondary text-white h-100">
-            <img src="${Poster}" class="card-img" alt="${Title}">
-            <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient-overlay">
-                <h5 class="card-title">${Title}</h5>
-                <p class="card-text">Date: ${TimesShown}</p>
-                <p class="card-text">Age: ${Adult}</p>
-                <p class="card-text">Language: ${Language}</p>
-            </div>
-        </div>
+        <a href="SingleItem.html">
+          <div class="card bg-secondary text-white h-100">
+              <img src="${Poster}" class="card-img" alt="${Title}">
+              <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient-overlay">
+                  <h5 class="card-title">${Title}</h5>
+                  <p class="card-text">Date: ${TimesShown}</p>
+                  <p class="card-text">Age: ${Adult}</p>
+                  <p class="card-text">Language: ${Language}</p>
+              </div>
+          </div>
+        </a>
         `;
         
         NowShowing.appendChild(DivElement);
