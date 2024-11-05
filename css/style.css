@@ -1,7 +1,3 @@
-TestButton {
-    margin-top: 5em;
-}
-
 .content {
     position: absolute;
     top: 0px;
@@ -15,11 +11,21 @@ TestButton {
     background-color: rgb(112, 112, 112);
 }
 
-.Card {
-    position: relative;
+.bg-gradient-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
 }
 
-.CardGradient {
-    position: absolute;
-    background-color: Black;
+.row.overflow-auto {
+    scroll-behavior: smooth;
 }
+.row.overflow-auto::-webkit-scrollbar {
+    height: 8px;
+}
+.row.overflow-auto::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+.row.overflow-auto::-webkit-scrollbar-track {
+    background: transparent;
+}
+

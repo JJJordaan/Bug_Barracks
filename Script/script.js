@@ -43,13 +43,13 @@ const HeroHeader = document.getElementById("HeroHeader")
 
           console.log(Title + ` ` + Poster + ` ` + Backdrop);
 
-          const DivElement = document.createElement('div');
-          DivElement.classList.add('col-lg-2', 'col-md-2', 'col-sm-4', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary');
-          DivElement.innerHTML = `
+          const TopMoviesDivElement = document.createElement('div');
+          TopMoviesDivElement.classList.add('col-lg-2', 'col-md-2', 'col-sm-4', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary');
+          TopMoviesDivElement.innerHTML = `
           <h1>${Title}</h1>
           <img src="${Poster}" alt="${Title}" class="w-100">
           `;
-          HeroHeader.appendChild(DivElement);
+          TopMovies.appendChild(TopMoviesDivElement);
         })
   
         const Amount = TopMoviesInfo.length;
@@ -79,27 +79,25 @@ const HeroHeader = document.getElementById("HeroHeader")
         const Language = Items.original_language.toUpperCase();
         const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
         const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
+        const ID = Items.id;
         // return [Name, TimesShown, Adult, Language, Poster, Backdrop];
-        console.log(`name: ${Title} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop}`);
+        console.log(`name: ${Title} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop} ID: ${ID}`);
 
         const DivElement = document.createElement('div');
-        DivElement.classList.add('col-lg-3', 'col-md-4', 'col-sm-4', 'col-xs-6', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary')
+        DivElement.classList.add('col-lg-2', 'col-md-4', 'col-sm-4', 'col-xs-6', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary')
         DivElement.innerHTML = `
-        <div class="position-relative, width-100">
-          <img src="${Poster}" alt="${Title}" class="w-100">
-          <div class="overlay">
-            <div class="overlay-content card-body">
-              <h1 class="Card-Title">${Title}</h1>
-              <p>${TimesShown}</p>
-              <p>${Adult}</p>
-              <p>${Language}</p>
+        <div class="card bg-secondary text-white h-100">
+            <img src="${Poster}" class="card-img" alt="${Title}">
+            <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient-overlay">
+                <h5 class="card-title">${Title}</h5>
+                <p class="card-text">Date: ${TimesShown}</p>
+                <p class="card-text">Age: ${Adult}</p>
+                <p class="card-text">Language: ${Language}</p>
             </div>
-          </div>
         </div>
-        
         `;
         
-        HeroHeader.appendChild(DivElement);
+        NowShowing.appendChild(DivElement);
       
       }); 
       })
