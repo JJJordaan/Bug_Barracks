@@ -69,6 +69,11 @@ const HeroHeader = document.getElementById("HeroHeader")
         const Amount = TopMoviesInfo.length;
         console.log(Amount);
 
+        DivElement.addEventListener('click', () => {
+          sessionStorage.setItem('SelectedMovieID', ID);
+          console.log(`Movie ID ${ID} stored in sessionStorage.`);
+        });
+
         
 
         //Figure out how to make AMOUNT of cards
@@ -99,6 +104,8 @@ const HeroHeader = document.getElementById("HeroHeader")
 
         const DivElement = document.createElement('div');
         DivElement.classList.add('col-lg-2', 'col-md-4', 'col-sm-4', 'col-xs-6', 'h-30', 'Card', 'CardGradient', 'text-light', 'bg-secondary')
+        DivElement.setAttribute('data-id', ID);
+
         DivElement.innerHTML = `
         <div class="card bg-secondary text-white h-100">
             <img src="${Poster}" class="card-img" alt="${Title}">
@@ -113,12 +120,10 @@ const HeroHeader = document.getElementById("HeroHeader")
         
         NowShowing.appendChild(DivElement);
 
-        function SaveID(){
-          sessionStorage.setItem('ID', ID);
-          console.log(`${ID}`);
-        }
-
-        document.addEventListener("click", SaveID());
+        DivElement.addEventListener('click', () => {
+          sessionStorage.setItem('SelectedMovieID', ID);
+          console.log(`Movie ID ${ID} stored in sessionStorage.`);
+        });
 
       
       }); 
