@@ -20,6 +20,21 @@ body style{
     
 }
 
+.logo{
+    margin-top: 5%;
+    justify-items: auto;
+    max-width: 120px;
+    height: 5%;
+}
+
+.logo img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: 20px;
+}
+
+
 .sign-head{
     display: flex;
     justify-content: space-between;
@@ -31,10 +46,10 @@ body style{
 }
 
 .logo-container{
-    margin-top: 25px;
+    margin-top: 5%;
     justify-items: auto;
     max-width: 120px;
-    height: 40px;
+    height: 5%;
 }
 .logo-container img{
     max-width: 100%;
@@ -93,18 +108,13 @@ body style{
     
 }
 
-.email-input{
+.email-input, .pass-input {
     display: flex;
-    margin-bottom: 15px;
     align-items: center;
-
+    margin-bottom: 15%; /* Spacing for responsive layout */
 }
-
-.pass-input{
-    display: flex;
-   
-    align-items: center;
-
+.form-control {
+    padding: 1rem; /* Adjust padding for responsive feel */
 }
 
 
@@ -151,7 +161,7 @@ body style{
 }
 
 .search-container i{
-    margin-left: 25px;
+    margin-left: 1%;
     position: absolute;
     top: 50%;
     transform: translateY(-20%);
@@ -175,45 +185,58 @@ body style{
 
 }
 
-.container{
+/*.container{
     max-width: 1170px;
     margin: auto;
-}
-.row{
+}*/
+/*.row{
     display: flex;
     flex-wrap: wrap;
-}
+}*/
 ul{
     list-style: none;
 }
-.card-container{
-     display: flex;
-     justify-content: space-between;
-     margin-left: 220px ;
-     margin-top: 20px;
+
+
+
+.card-container {
+    margin-left: 30%; /* Adjusted to 10% for responsiveness */
+    margin-top: 10%; /* Adjusted to 2% for responsiveness */
 }
-.card{
-    margin-top: 80px;
-    border-radius: 25px;
+.card {
+    border-radius: 20%; /* Custom border-radius to match original style */
     border: none;
-    height: 380px;
+    height: 100%; /* Ensures card takes full height of column */
 }
 
-.upcoming{
+/*.upcoming{
     margin-top: 32px;
-    margin-left: 18%;
-}
+    margin-left: 15%;
+}*/
 
-.upcoming h1{
+.upcoming-container h1{
     color: #ffffff;
 }
 
 .upcoming-container{
-    display: flex;
+    margin-top: 20%;
+    margin-left: 30%;
+    /*display: flex;
     justify-content: space-between;
     
-    margin-top: 22px;
+    margin-top: 22px;*/
 }
+
+
+.tv-container h1{
+    color: #ffffff;
+}
+
+.tv-container {
+    margin-top: 25%;
+    margin-left: 30%;
+}
+
 
 .footer{
     background-color: #1A1919;
@@ -280,14 +303,14 @@ ul{
 
 .wrapper .sidebar{
     position: fixed;
-    width: 200px;
+    width: 20%;
     height: 100%;
     background: #212121;
-    padding: 30px 0;
+    padding: 1% 0;
 
 }
 .wrapper .sidebar ul li{
-    padding: 15px;
+    padding: 10%;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(225,225,225,0.05);
 }
@@ -307,6 +330,19 @@ ul{
 
 .wrapper .sidebar ul li:hover a{
     color: #3dd2cc;
+}
+
+.categories h4{
+    padding-left: 5%;
+    font-size: small;
+    color: #ffffff;
+}
+.categories h2{
+    font-size: small;
+    color: #ffffff;
+}
+.checks{
+    padding-left: 10%;
 }
 
 @media(max-width: 574px){
