@@ -310,7 +310,8 @@ ul{
 
 }
 .wrapper .sidebar ul li{
-    padding: 10%;
+    position: inherit;
+    padding: 5%;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(225,225,225,0.05);
 }
@@ -332,6 +333,8 @@ ul{
     color: #3dd2cc;
 }
 
+
+
 .categories h4{
     padding-left: 5%;
     font-size: small;
@@ -341,7 +344,8 @@ ul{
     font-size: small;
     color: #ffffff;
 }
-.checks{
+.checks{ 
+    justify-content: space-between;
     padding-left: 10%;
 }
 
