@@ -204,7 +204,7 @@ const genres = { //pasted genre ids so it's easier to access
         NowShowing.appendChild(DivElement);
 
         function ImgBack() {
-          document.getElementById("trailerImage").src = BackDrop;
+          document.getElementById("trailerImage").src = Backdrop;
         }
 
         DivElement.addEventListener('click', () => {
@@ -212,6 +212,7 @@ const genres = { //pasted genre ids so it's easier to access
           console.log(`Movie ID ${ID} stored in sessionStorage.`);
           
           document.getElementById("Description").innerText = Overview;
+          document.getElementById()
 
           ImgBack();
         });
