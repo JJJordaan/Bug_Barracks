@@ -6,6 +6,87 @@ const TopMoviesOptions = {
     }
   };
 
+const genres = { //pasted genre ids so it's easier to access
+  "genres": [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 16,
+      "name": "Animation"
+    },
+    {
+      "id": 35,
+      "name": "Comedy"
+    },
+    {
+      "id": 80,
+      "name": "Crime"
+    },
+    {
+      "id": 99,
+      "name": "Documentary"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    },
+    {
+      "id": 10751,
+      "name": "Family"
+    },
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 36,
+      "name": "History"
+    },
+    {
+      "id": 27,
+      "name": "Horror"
+    },
+    {
+      "id": 10402,
+      "name": "Music"
+    },
+    {
+      "id": 9648,
+      "name": "Mystery"
+    },
+    {
+      "id": 10749,
+      "name": "Romance"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 10770,
+      "name": "TV Movie"
+    },
+    {
+      "id": 53,
+      "name": "Thriller"
+    },
+    {
+      "id": 10752,
+      "name": "War"
+    },
+    {
+      "id": 37,
+      "name": "Western"
+    }
+  ]
+}
+
   const NowPlayingOptions = {
     method: 'GET',
     headers: {
@@ -16,8 +97,6 @@ const TopMoviesOptions = {
   
   let TopMoviesData;
   async function getCardData() {
-
-const HeroHeader = document.getElementById("HeroHeader")
 
 //FIRST API DATA:
   fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', TopMoviesOptions)
@@ -42,6 +121,7 @@ const HeroHeader = document.getElementById("HeroHeader")
           const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
           const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
           const ID = Items.id;
+          const Overview = Items.overview;
 
           console.log(Title + ` ` + Poster + ` ` + Backdrop);
 
@@ -99,6 +179,7 @@ const HeroHeader = document.getElementById("HeroHeader")
         const Poster = `https://image.tmdb.org/t/p/w500/${Items.poster_path}`;
         const Backdrop = `https://image.tmdb.org/t/p/w500/${Items.backdrop_path}`;
         const ID = Items.id;
+        const Overview = Items.overview;
         // return [Name, TimesShown, Adult, Language, Poster, Backdrop];
         console.log(`name: ${Title} Date: ${TimesShown} Adult: ${Adult} Language: ${Language} Poster: ${Poster} Backdrop: ${Backdrop} ID: ${ID}`);
 
@@ -120,9 +201,17 @@ const HeroHeader = document.getElementById("HeroHeader")
         
         NowShowing.appendChild(DivElement);
 
+        function ImgBack() {
+          document.getElementById("trailerImage").src = BackDrop;
+        }
+
         DivElement.addEventListener('click', () => {
           sessionStorage.setItem('SelectedMovieID', ID);
           console.log(`Movie ID ${ID} stored in sessionStorage.`);
+          
+          document.getElementById("Description").innerText = Overview;
+
+          ImgBack();
         });
 
       
