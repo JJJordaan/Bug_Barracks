@@ -46,9 +46,8 @@ TestButton {
 
 
 
-body style{ 
-    background-color: #191919;
-    
+body {
+    background-color: #191919 !important;
 }
 
 .logo{
